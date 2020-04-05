@@ -1,3 +1,4 @@
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 
 # Create your models here.
@@ -7,8 +8,8 @@ from django.utils.safestring import mark_safe
 class Category(models.Model):
     STATUS=(('True','Evet'),('False','Hayır'),)
     title=models.CharField(max_length=150)
-    keywords=models.CharField(max_length=255)
-    description=models.CharField(max_length=255)
+    keywords=models.CharField(blank=True,max_length=255)
+    description=models.CharField(blank=True,max_length=255)
     image=models.ImageField(blank=True,upload_to='images/')
     status=models.CharField(max_length=10,choices=STATUS)
     slug=models.SlugField()
@@ -27,10 +28,11 @@ class News(models.Model):
     STATUS=(('True','Evet'),('False','Hayır'),)
     Category=models.ForeignKey(Category,on_delete=models.CASCADE)
     title=models.CharField(max_length=255)
-    keywords=models.CharField(max_length=255)
-    description=models.CharField(max_length=255)
+    keywords=models.CharField(blank=True,max_length=255)
+    description=models.CharField(blank=True,max_length=255)
     image=models.ImageField(blank=True,upload_to='images/')
-    detail=models.TextField()
+    detail=RichTextUploadingField()
+    slug = models.SlugField(max_length=255,blank=True)
     status=models.CharField(max_length=10,choices=STATUS)
     create_at=models.DateTimeField(auto_now_add=True)
     update_at=models.DateTimeField(auto_now=True)

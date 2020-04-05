@@ -1,0 +1,42 @@
+{% extends 'homebase.html' %}
+{% block title %} İletisim-{{ setting.company }} {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+{% block head %} <link rel="shortcut icon" type="image/x-icon" href="{{ setting.icon.url }}"> {% endblock %}
+{% block newsslider %}{% include 'newsslider.html' %}{% endblock %}
+{% block sidebar %}{% include 'sidebar.html' %}{% endblock %}
+{% block content %}
+    {% load static %}
+   <section id="contentSection">
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-4">
+        <div class="left_content">
+          <div class="contact_area">
+              <h2><span>Bize Yazın</span></h2>
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}" role="alert">
+                        {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+              <form action="" method="post">
+                {% csrf_token %}
+                  {{ form.as_p }}
+              <input type="submit" value="Send Message">
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <aside class="right_content">
+          <div class="single_sidebar">
+            <h2>İletişim</h2>
+            {{ setting.contact|safe }}
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+{% endblock %}

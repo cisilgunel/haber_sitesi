@@ -1,4 +1,44 @@
 {% load static %}
+<nav class="sidebar">
+    <!-- close sidebar menu -->
+    <div class="dismiss">
+      <i class="fas fa-arrow-left"></i>
+    </div>
+
+    <div class="logo">
+      <h3><a href="index.html">Bootstrap 4 Template with Sidebar Menu</a></h3>
+    </div>
+
+    <ul class="list-unstyled menu-elements">
+      <li class="active"><a class="scroll-link" href="#top-content"> Home</a></li>
+      <li><a class="scroll-link" href="#section-1">What we do</a> </li>
+      <li><a class="scroll-link" href="#section-2"> About us</a></li>
+      <li><a class="scroll-link" href="#section-5"> Portfolio</a> </li>
+      <li><a class="scroll-link" href="#section-6"> Contact us</a></li>
+      <li><a href="#otherSections" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="otherSections">Other sections</a>
+        <ul class="collapse list-unstyled" id="otherSections">
+          <li><a class="scroll-link" href="#section-3">Our projects</a></li>
+          <li> <a class="scroll-link" href="#section-4">We think that...</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+<ul class="dropdown-menu" role="menu">
+    <li><a href="#">Astroloji</a></li>
+    <li><a href="#">Seyahat</a></li>
+    <li><a href="#">Emlak</a></li>
+    <li><a href="#">Eğitim</a></li>
+    <li><a href="#">Kültür-Sanat</a></li>
+      <li><a href="#">Yaşam</a></li>
+      <li><a href="#">Finans</a></li>
+      <li><a href="#">Güzellik</a></li>
+    <li><a href="#">Moda</a></li>
+    <li><a href="#">Lezzet</a></li>
+    <li><a href="#">Dünya</a></li>
+    <li><a href="#">Döviz Kurları</a></li>
+      <li><a href="#">Maç Sonuçları</a></li>
+      <li><a href="#">Yerel Haberler</a></li>
+  </ul>
 <section id="navArea">
     <nav class="navbar navbar-inverse" role="navigation">
       <div class="navbar-header">
@@ -6,22 +46,19 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav main_nav">
-          <li class="active"><a href="index.html"><span class="fa fa-home desktop-home"></span><span class="mobile-show">Home</span></a></li>
-          <li><a href="#">Technology</a></li>
-          <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Mobile</a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Android</a></li>
-              <li><a href="#">Samsung</a></li>
-              <li><a href="#">Nokia</a></li>
-              <li><a href="#">Walton Mobile</a></li>
-              <li><a href="#">Sympony</a></li>
-            </ul>
+          <li class="dropdown"> <a class="btn btn-primary btn-customized open-menu" href="#" role="button">
+            <i class="fas fa-align-left"></i> <span>Menu</span></a>
           </li>
-          <li><a href="#">Laptops</a></li>
-          <li><a href="#">Tablets</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="404.html">404 Page</a></li>
+          <li><a href="#">GÜNDEM</a></li>
+            <li><a href="#">EKONOMİ</a></li>
+            <li><a href="404.html">TEKNOLOJİ</a></li>
+          <li><a href="#">SPOR</a></li>
+          <li><a href="#">MAGAZİN</a></li>
+          <li><a href="contact.html">SAĞLIK</a></li>
         </ul>
+           <div class="header_top_right">
+            <p><script> var tarih=new Date(); document.write(tarih.toUTCString()); </script></p>
+          </div>
       </div>
     </nav>
   </section>

@@ -30,9 +30,11 @@
 <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
 <div class="container">
 {% include 'header.html' %}
-{% block newsslider %}{% include 'newsslider.html' %}{% endblock %}
 {% block sidebar %} {% include 'sidebar.html' %} {% endblock %}
+{% block newsslider %}{% include 'newsslider.html' %}{% endblock %}
+{% if page == 'home' %}
 {% block slider %} {% include 'slider.html' %} {% endblock %}
+{% endif %}
 {% block content %} {% include 'content.html' %} {% endblock %}
 {% include 'footer.html' %}
 {% block foot %}  {% endblock %}
