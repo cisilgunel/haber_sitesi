@@ -32,7 +32,7 @@
 {% include 'header.html' %}
 {% block sidebar %} {% include 'sidebar.html' %} {% endblock %}
 {% block newsslider %}{% include 'newsslider.html' %}{% endblock %}
-{% if page == 'home' %}
+{% if page == 'home' or page == 'category_news' %}
 {% block slider %} {% include 'slider.html' %} {% endblock %}
 {% endif %}
 {% block content %} {% include 'content.html' %} {% endblock %}
