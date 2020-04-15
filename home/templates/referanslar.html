@@ -9,42 +9,22 @@
     {% load static %}
    <section id="contentSection">
     <div class="row">
-      <div class="col-lg-8 col-md-8 col-sm-8">
+      <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="left_content">
           <div class="contact_area">
             <h2>Reklam</h2>
             {{ setting.references|safe }}
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <aside class="right_content">
-          <div class="single_sidebar">
-            <h2><span>Popüler Haberler</span></h2>
-            <ul class="spost_nav">
+              <ul class="photograph_nav  wow fadeInDown">
+                {% for rs in seyahatNews %}
               <li>
-                <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img1.jpg'%}"> </a>
-                  <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 1</a> </div>
+                <div class="photo_grid">
+                  <figure class="effect-layla"> <a class="fancybox-buttons" data-fancybox-group="button" href="/new/{{ rs.id }}/{{ rs.slug }}" title="{{ rs.title }}"> <img src="{{ rs.image.url }}" alt=""/></a> </figure>
                 </div>
               </li>
-              <li>
-                <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img2.jpg'%}"> </a>
-                  <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 2</a> </div>
-                </div>
-              </li>
-              <li>
-                <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img1.jpg'%}"> </a>
-                  <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 3</a> </div>
-                </div>
-              </li>
-              <li>
-                <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img2.jpg'%}"> </a>
-                  <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 4</a> </div>
-                </div>
-              </li>
+                {% endfor %}
             </ul>
           </div>
-        </aside>
+        </div>
       </div>
     </div>
   </section>

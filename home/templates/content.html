@@ -4,12 +4,14 @@
       <div class="col-lg-8 col-md-8 col-sm-8">
         <div class="left_content">
           <div class="single_post_content">
-            <h2><span>Ekonomi</span></h2>
+            <h2><span>Gündem</span></h2>
+              {% for rs in haberNews %}
+              {% if forloop.first %}
             <div class="single_post_content_left">
               <ul class="business_catgnav  wow fadeInDown">
                 <li>
-                  <figure class="bsbig_fig"> <a href="single_page.html" class="featured_img"> <img alt="" src="{% static 'images/featured_img1.jpg'%}"> <span class="overlay"></span> </a>
-                    <figcaption> <a href="single_page.html">Proin rhoncus consequat nisl eu ornare mauris</a> </figcaption>
+                  <figure class="bsbig_fig"> <a href="/new/{{ rs.id }}/{{ rs.slug }}" class="featured_img"> <img alt="" src="{{ rs.image.url }}"> <span class="overlay"></span> </a>
+                    <figcaption> <a href="/new/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a> </figcaption>
                     <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a phare...</p>
                   </figure>
                 </li>
@@ -17,108 +19,130 @@
             </div>
             <div class="single_post_content_right">
               <ul class="spost_nav">
+                  {% else %}
                 <li>
-                  <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img1.jpg'%}"> </a>
-                    <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 1</a> </div>
+                  <div class="media wow fadeInDown"> <a href="/new/{{ rs.id }}/{{ rs.slug }}" class="media-left"> <img alt="" src="{{ rs.image.url }}"> </a>
+                    <div class="media-body"> <a href="/new/{{ rs.id }}/{{ rs.slug }}" class="catg_title"> {{ rs.title }}</a> </div>
                   </div>
                 </li>
-                <li>
-                  <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img2.jpg'%}"> </a>
-                    <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 2</a> </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img1.jpg'%}"> </a>
-                    <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 3</a> </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img2.jpg'%}"> </a>
-                    <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 4</a> </div>
-                  </div>
-                </li>
+                  {% endif %}
               </ul>
             </div>
+              {% endfor %}
           </div>
           <div class="fashion_technology_area">
             <div class="fashion">
               <div class="single_post_content">
-                <h2><span>Magazin</span></h2>
+                <h2><span>Ekonomi</span></h2>
+                  {% for rs in ekonomiNews %}
+                      {% if forloop.first %}
                 <ul class="business_catgnav wow fadeInDown">
                   <li>
-                    <figure class="bsbig_fig"> <a href="single_page.html" class="featured_img"> <img alt="" src="{% static 'images/featured_img2.jpg'%}"> <span class="overlay"></span> </a>
-                      <figcaption> <a href="single_page.html">Proin rhoncus consequat nisl eu ornare mauris</a> </figcaption>
+                    <figure class="bsbig_fig"> <a href="/new/{{ rs.id }}/{{ rs.slug }}" class="featured_img"> <img alt="" src="{{ rs.image.url }}"> <span class="overlay"></span> </a>
+                      <figcaption> <a href="/new/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a> </figcaption>
                       <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a phare...</p>
                     </figure>
                   </li>
                 </ul>
+                      {% else %}
                 <ul class="spost_nav">
                   <li>
-                    <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img1.jpg'%}"> </a>
-                      <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 1</a> </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img2.jpg'%}"> </a>
-                      <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 2</a> </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img1.jpg'%}"> </a>
-                      <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 3</a> </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img2.jpg'%}"> </a>
-                      <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 4</a> </div>
+                    <div class="media wow fadeInDown"> <a href="/new/{{ rs.id }}/{{ rs.slug }}" class="media-left"> <img alt="" src="{{ rs.image.url }}"> </a>
+                      <div class="media-body"> <a href="/new/{{ rs.id }}/{{ rs.slug }}" class="catg_title"> {{ rs.title }}</a> </div>
                     </div>
                   </li>
                 </ul>
+                      {% endif %}
+                  {% endfor %}
               </div>
             </div>
             <div class="technology">
               <div class="single_post_content">
                 <h2><span>Teknoloji</span></h2>
-                <ul class="business_catgnav">
+                 {% for rs in teknolojiNews %}
+                      {% if forloop.first %}
+                <ul class="business_catgnav wow fadeInDown">
                   <li>
-                    <figure class="bsbig_fig wow fadeInDown"> <a href="single_page.html" class="featured_img"> <img alt="" src="{% static 'images/featured_img3.jpg'%}"> <span class="overlay"></span> </a>
-                      <figcaption> <a href="single_page.html">Proin rhoncus consequat nisl eu ornare mauris</a> </figcaption>
+                    <figure class="bsbig_fig"> <a href="/new/{{ rs.id }}/{{ rs.slug }}" class="featured_img"> <img alt="" src="{{ rs.image.url }}"> <span class="overlay"></span> </a>
+                      <figcaption> <a href="/new/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a> </figcaption>
                       <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a phare...</p>
                     </figure>
                   </li>
                 </ul>
+                      {% else %}
                 <ul class="spost_nav">
                   <li>
-                    <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img1.jpg'%}"> </a>
-                      <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 1</a> </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img2.jpg'%}"> </a>
-                      <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 2</a> </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img1.jpg'%}"> </a>
-                      <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 3</a> </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img2.jpg'%}"> </a>
-                      <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 4</a> </div>
+                    <div class="media wow fadeInDown"> <a href="/new/{{ rs.id }}/{{ rs.slug }}" class="media-left"> <img alt="" src="{{ rs.image.url }}"> </a>
+                      <div class="media-body"> <a href="/new/{{ rs.id }}/{{ rs.slug }}" class="catg_title"> {{ rs.title }}</a> </div>
                     </div>
                   </li>
                 </ul>
+                      {% endif %}
+                  {% endfor %}
+              </div>
+            </div>
+          </div>
+        <div class="fashion_technology_area">
+            <div class="fashion">
+              <div class="single_post_content">
+                <h2><span>Magazin</span></h2>
+                  {% for rs in magazinNews %}
+                      {% if forloop.first %}
+                <ul class="business_catgnav wow fadeInDown">
+                  <li>
+                    <figure class="bsbig_fig"> <a href="/new/{{ rs.id }}/{{ rs.slug }}" class="featured_img"> <img alt="" src="{{ rs.image.url }}"> <span class="overlay"></span> </a>
+                      <figcaption> <a href="/new/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a> </figcaption>
+                      <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a phare...</p>
+                    </figure>
+                  </li>
+                </ul>
+                      {% else %}
+                <ul class="spost_nav">
+                  <li>
+                    <div class="media wow fadeInDown"> <a href="/new/{{ rs.id }}/{{ rs.slug }}" class="media-left"> <img alt="" src="{{ rs.image.url }}"> </a>
+                      <div class="media-body"> <a href="/new/{{ rs.id }}/{{ rs.slug }}" class="catg_title"> {{ rs.title }}</a> </div>
+                    </div>
+                  </li>
+                </ul>
+                      {% endif %}
+                  {% endfor %}
+              </div>
+            </div>
+            <div class="technology">
+              <div class="single_post_content">
+                <h2><span>Yaşam</span></h2>
+                 {% for rs in yasamNews %}
+                      {% if forloop.first %}
+                <ul class="business_catgnav wow fadeInDown">
+                  <li>
+                    <figure class="bsbig_fig"> <a href="/new/{{ rs.id }}/{{ rs.slug }}" class="featured_img"> <img alt="" src="{{ rs.image.url }}"> <span class="overlay"></span> </a>
+                      <figcaption> <a href="/new/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a> </figcaption>
+                      <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a phare...</p>
+                    </figure>
+                  </li>
+                </ul>
+                      {% else %}
+                <ul class="spost_nav">
+                  <li>
+                    <div class="media wow fadeInDown"> <a href="/new/{{ rs.id }}/{{ rs.slug }}" class="media-left"> <img alt="" src="{{ rs.image.url }}"> </a>
+                      <div class="media-body"> <a href="/new/{{ rs.id }}/{{ rs.slug }}" class="catg_title"> {{ rs.title }}</a> </div>
+                    </div>
+                  </li>
+                </ul>
+                      {% endif %}
+                  {% endfor %}
               </div>
             </div>
           </div>
           <div class="single_post_content">
             <h2><span>Spor</span></h2>
+          {% for rs in sporNews %}
+              {% if forloop.first %}
             <div class="single_post_content_left">
               <ul class="business_catgnav">
                 <li>
-                  <figure class="bsbig_fig  wow fadeInDown"> <a class="featured_img" href="single_page.html"> <img src="{% static 'images/featured_img1.jpg'%}" alt=""> <span class="overlay"></span> </a>
-                    <figcaption> <a href="single_page.html">Proin rhoncus consequat nisl eu ornare mauris</a> </figcaption>
+                  <figure class="bsbig_fig  wow fadeInDown"> <a class="featured_img" href="/new/{{ rs.id }}/{{ rs.slug }}"> <img src="{{ rs.image.url }}" alt=""> <span class="overlay"></span> </a>
+                    <figcaption> <a href="/new/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a> </figcaption>
                     <p>Nunc tincidunt, elit non cursus euismod, lacus augue ornare metus, egestas imperdiet nulla nisl quis mauris. Suspendisse a phare...</p>
                   </figure>
                 </li>
@@ -126,61 +150,26 @@
             </div>
             <div class="single_post_content_right">
               <ul class="spost_nav">
+                  {% else %}
                 <li>
-                  <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img1.jpg'%}"> </a>
-                    <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 1</a> </div>
+                  <div class="media wow fadeInDown"> <a href="/new/{{ rs.id }}/{{ rs.slug }}" class="media-left"> <img alt="" src="{{ rs.image.url }}"> </a>
+                    <div class="media-body"> <a href="/new/{{ rs.id }}/{{ rs.slug }}" class="catg_title"> {{ rs.title }}</a> </div>
                   </div>
                 </li>
-                <li>
-                  <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img2.jpg'%}"> </a>
-                    <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 2</a> </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img1.jpg'%}"> </a>
-                    <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 3</a> </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img2.jpg'%}"> </a>
-                    <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 4</a> </div>
-                  </div>
-                </li>
+                    {% endif %}
               </ul>
             </div>
+          {% endfor %}
               <div class="single_post_content">
             <h2><span>Seyahat</span></h2>
             <ul class="photograph_nav  wow fadeInDown">
+                {% for rs in seyahatNews %}
               <li>
                 <div class="photo_grid">
-                  <figure class="effect-layla"> <a class="fancybox-buttons" data-fancybox-group="button" href="images/photograph_img2.jpg'%}" title="Photography Ttile 1"> <img src="{% static 'images/photograph_img2.jpg'%}" alt=""/></a> </figure>
+                  <figure class="effect-layla"> <a class="fancybox-buttons" data-fancybox-group="button" href="/new/{{ rs.id }}/{{ rs.slug }}" title="{{ rs.title }}"> <img src="{{ rs.image.url }}" alt=""/></a> </figure>
                 </div>
               </li>
-              <li>
-                <div class="photo_grid">
-                  <figure class="effect-layla"> <a class="fancybox-buttons" data-fancybox-group="button" href="images/photograph_img3.jpg'%}" title="Photography Ttile 2"> <img src="{% static 'images/photograph_img3.jpg'%}" alt=""/> </a> </figure>
-                </div>
-              </li>
-              <li>
-                <div class="photo_grid">
-                  <figure class="effect-layla"> <a class="fancybox-buttons" data-fancybox-group="button" href="images/photograph_img4.jpg'%}" title="Photography Ttile 3"> <img src="{% static 'images/photograph_img4.jpg'%}" alt=""/> </a> </figure>
-                </div>
-              </li>
-              <li>
-                <div class="photo_grid">
-                  <figure class="effect-layla"> <a class="fancybox-buttons" data-fancybox-group="button" href="images/photograph_img4.jpg'%}" title="Photography Ttile 4"> <img src="{% static 'images/photograph_img4.jpg'%}" alt=""/> </a> </figure>
-                </div>
-              </li>
-              <li>
-                <div class="photo_grid">
-                  <figure class="effect-layla"> <a class="fancybox-buttons" data-fancybox-group="button" href="images/photograph_img2.jpg'%}" title="Photography Ttile 5"> <img src="{% static 'images/photograph_img2.jpg'%}" alt=""/> </a> </figure>
-                </div>
-              </li>
-              <li>
-                <div class="photo_grid">
-                  <figure class="effect-layla"> <a class="fancybox-buttons" data-fancybox-group="button" href="images/photograph_img3.jpg'%}" title="Photography Ttile 6"> <img src="{% static 'images/photograph_img3.jpg'%}" alt=""/> </a> </figure>
-                </div>
-              </li>
+                {% endfor %}
             </ul>
           </div>
           </div>
@@ -191,26 +180,13 @@
           <div class="single_sidebar">
             <h2><span>Popüler Haberler</span></h2>
             <ul class="spost_nav">
+                {% for rs in popularNews %}
               <li>
-                <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img1.jpg'%}"> </a>
-                  <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 1</a> </div>
+                <div class="media wow fadeInDown"> <a href="/new/{{ rs.id }}/{{ rs.slug }}" class="media-left"> <img alt="" src="{{ rs.image.url }}"> </a>
+                  <div class="media-body"> <a href="/new/{{ rs.id }}/{{ rs.slug }}" class="catg_title"> {{ rs.title }}</a> </div>
                 </div>
               </li>
-              <li>
-                <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img2.jpg'%}"> </a>
-                  <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 2</a> </div>
-                </div>
-              </li>
-              <li>
-                <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img1.jpg'%}"> </a>
-                  <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 3</a> </div>
-                </div>
-              </li>
-              <li>
-                <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img2.jpg'%}"> </a>
-                  <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 4</a> </div>
-                </div>
-              </li>
+                {% endfor %}
             </ul>
           </div>
           <div class="single_sidebar">
@@ -222,13 +198,10 @@
             <div class="tab-content">
               <div role="tabpanel" class="tab-pane active" id="category">
                 <ul>
-                  <li class="cat-item"><a href="#">Spor</a></li>
-                  <li class="cat-item"><a href="#">Magazin</a></li>
-                  <li class="cat-item"><a href="#">Ekonomi</a></li>
-                  <li class="cat-item"><a href="#">Teknoloji</a></li>
-                  <li class="cat-item"><a href="#">Eğitim</a></li>
-                  <li class="cat-item"><a href="#">Yaşam</a></li>
-                  <li class="cat-item"><a href="#">Lezzet</a></li>
+                    {% load mptt_tags %}
+                {% recursetree category %}
+                  <li class="cat-item"><a href="/category/{{ node.id }}/{{ node.slug }}">{{node.title}}</a></li>
+                {% endrecursetree %}
                 </ul>
               </div>
               <div role="tabpanel" class="tab-pane" id="video">
@@ -269,10 +242,12 @@
             <h2><span>Haber Arşivi</span></h2>
             <select class="catgArchive">
               <option>Kategori Seç</option>
-              <option>Yaşam</option>
-              <option>Spor</option>
-              <option>Teknoloji</option>
-              <option>Trendler</option>
+              <option href="/category/25/Yasam">Yaşam</option>
+              <option href="/category/15/Spor">Spor</option>
+              <option href="/category/16/Teknoloji">Teknoloji</option>
+                <option href="/category/18/Ekonomi">Ekonomi</option>
+              <option href="/category/15/Magazin">Magazin</option>
+              <option href="/category/21/Dunya">Dünya</option>
             </select>
           </div>
           <div class="single_sidebar wow fadeInDown">

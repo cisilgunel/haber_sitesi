@@ -1,6 +1,6 @@
 {% extends 'homebase.html' %}
-{% block title %} {{ categorydata.title }} News {% endblock %}
-{% block keywords %} {{ categorydata.keywords }} {% endblock %}
+{% block title %} {{ new.title }} News {% endblock %}
+{% block keywords %} {{ new.keywords }} {% endblock %}
 {% block description %} {{ categorydata.description }} {% endblock %}
 {% block head %} <link rel="shortcut icon" type="image/x-icon" href="{{ setting.icon.url }}"> {% endblock %}
 {% block newsslider %}{% include 'newsslider.html' %}{% endblock %}
@@ -10,38 +10,43 @@
    <section id="contentSection">
     <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-8">
-            <div class="single_post_content">
-                <h2><span>{{ categorydata.title }}</span></h2>
-                {% for rs in news %}
-                    <div class="col-sm-6 p-r-25 p-r-15-sr991">
-                        <!-- Item latest -->
-                        <div class="m-b-45">
-                            <a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
-                                <img src="{{ rs.image.url }}" alt="IMG">
-                            </a>
-                            <div class="p-t-16">
-                                <h5 class="p-b-5">
-                                    <a href="blog-detail-01.html" class="f1-m-3 cl2 hov-cl10 trans-03">
-                                        {{ rs.title }}
-                                    </a>
-                                </h5>
-                                <span class="cl8">
-                              <a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
-                                  by John Alvarado
-                              </a>
-                              <span class="f1-s-3 m-rl-3">
-                                  -
-                              </span>
-                                <span class="f1-s-3">
-                                    {{ rs.update_at }}
-                                </span>
-                            </span>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
+        <div class="left_content">
+          <div class="single_page">
+            <ol class="breadcrumb">
+              <li><a href="/">Home</a></li>
+              <li><a href="/category/{{ new.Category.id }}/{{ new.Category.slug }}">{{new.Category }}</a></li>
+              <li class="active">{{ new.description }}</li>
+            </ol>
+            <h1>{{ new.title }}</h1>
+            <div class="post_commentbox"> <a href="#"><i class="fa fa-user"></i>Wpfreeware</a> <span><i class="fa fa-calendar"></i>{{ new.update_at }}</span> <a href="#"><i class="fa fa-tags"></i>{{ new.Category }}</a> </div>
+            <div class="single_page_content">
+              <p>{{ new.detail | safe }}</p>
             </div>
+            <div class="social_link">
+              <ul class="sociallink_nav">
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+              </ul>
+            </div>
+            <div class="related_post">
+              <h2>Related Post <i class="fa fa-thumbs-o-up"></i></h2>
+              <ul class="spost_nav wow fadeInDown animated">
+                  {% for rs in related %}
+                <li>
+                  <div class="media"> <a class="media-left" href="/new/{{ rs.id }}/{{ rs.slug }}"> <img src="{{ rs.image.url }}" alt=""> </a>
+                    <div class="media-body"> <a class="catg_title" href="/new/{{ rs.id }}/{{ rs.slug }}"> {{ rs.title }}</a> </div>
+                  </div>
+                </li>
+                  {% endfor %}
+              </ul>
+            </div>
+          </div>
         </div>
+      </div>
+
       <div class="col-lg-4 col-md-4 col-sm-4">
         <aside class="right_content">
           <div class="single_sidebar">

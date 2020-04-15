@@ -5,9 +5,9 @@
         <div class="slick_slider">
 
             {% for rs in sliderdata %}
-          <div class="single_iteam"><a href="/{{ rs.Category }}/{{ rs.slug }}"> <img src="{{ rs.image.url }}" alt=""></a>
+          <div class="single_iteam"><a href="/new/{{ rs.id }}/{{ rs.slug }}"> <img src="{{ rs.image.url }}" alt=""></a>
             <div class="slider_article">
-              <h2><a class="slider_tittle" href="/{{ rs.Category }}/{{ rs.slug }}">{{ rs.title }}</a></h2>
+              <h2><a class="slider_tittle" href="/new/{{ rs.id }}/{{ rs.slug }}">{{ rs.title }}</a></h2>
             </div>
           </div>
             {% endfor %}
@@ -22,8 +22,8 @@
             <ul class="latest_postnav">
                 {% for rss in sliderr %}
                     <li>
-                     <div class="media"> <a href="/{{ rss.Category }}/{{ rss.slug }}" class="media-left"> <img alt="" src="{{ rss.image.url }}"> </a>
-                    <div class="media-body"> <a href="/{{ rss.Category }}/{{ rss.slug }}" class="catg_title"> {{ rss.title }}</a> </div>
+                     <div class="media"> <a href="/new/{{ rss.id }}/{{ rss.slug }}" class="media-left"> <img alt="" src="{{ rss.image.url }}"> </a>
+                    <div class="media-body"> <a href="/new/{{ rss.id }}/{{ rss.slug }}" class="catg_title"> {{ rss.title }}</a> </div>
                     </div>
                     </li>
                 {% endfor %}
