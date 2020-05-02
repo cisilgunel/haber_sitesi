@@ -1,5 +1,5 @@
 {% extends 'homebase.html' %}
-{% block title %} {{ categorydata.title }} News {% endblock %}
+{% block title %} News Search Results {% endblock %}
 {% block keywords %} {{ categorydata.keywords }} {% endblock %}
 {% block description %} {{ categorydata.description }} {% endblock %}
 {% block head %} <link rel="shortcut icon" type="image/x-icon" href="{{ setting.icon.url }}"> {% endblock %}
@@ -11,7 +11,6 @@
     <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-8">
             <div class="single_post_content">
-                <h2><span>{{ categorydata.title }}</span></h2>
                 {% for rs in news %}
                     <div class="col-sm-6 p-r-25 p-r-15-sr991">
                         <!-- Item latest -->

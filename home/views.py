@@ -3,8 +3,9 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
 # Create your views here.
+from home.forms import SearchForm
 from home.models import Setting, ContactFormu, ContactFormMessage
-from news.models import News, Category, Images
+from news.models import News, Category, Images, Comment
 
 
 def index(request):
@@ -101,11 +102,24 @@ def category_news(request,id,slug):
 def new_detail(request,id,slug):
     lastnews = News.objects.all()[:9]
     popularNews = News.objects.all().order_by('?')[:4]
+    comments = Comment.objects.filter(news_id=id,status='True')
     category = Category.objects.all()
     new = News.objects.get(pk=id)
     image=Images.objects.filter(new_id=id)
     related=News.objects.filter(Category_id=new.Category).order_by('?')[:3]
-    mesaj="haber",id,"/",slug
     context ={'new': new, 'category': category,'page':'new_detail',
-               'lastnews': lastnews,'popularNews': popularNews,'image': image,'related': related}
+               'lastnews': lastnews,'popularNews': popularNews,'image': image,'related': related, 'comments':comments}
     return render(request,'new_detail.html',context)
+
+def news_search(request):
+    if request.method=='POST':
+        form=SearchForm(request.POST)
+        if form.is_valid():
+            lastnews = News.objects.all()[:9]
+            popularNews = News.objects.all().order_by('?')[:4]
+            category=Category.objects.all()
+            query=form.cleaned_data['query']
+            news=News.objects.filter(title__icontains=query)
+            context={'news':news,'category':category,'lastnews': lastnews,'popularNews': popularNews,}
+            return render(request,'news_search.html',context)
+    return HttpResponseRedirect('/')
