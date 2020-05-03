@@ -1,6 +1,27 @@
 {% load static %}
 <header id="header">
     <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="header_top">
+          <div class="header_top_left">
+            <ul class="top_nav">
+                {% if user.id is not None %}
+                    <li><a>{{ user.first_name }}</a></li>
+                    <li><a href="/logout/">Çıkış</a></li>
+                {% else %}
+                    <li><a href="/login/">Giriş Yap</a></li>
+                    <li><a href="/signup/">Üye Ol</a></li>
+                {% endif %}
+            </ul>
+          </div>
+          <div class="header_top_right">
+            <p>
+                    <script> var tarih = new Date();
+                    document.write(tarih.toUTCString()); </script>
+                </p>
+          </div>
+        </div>
+      </div>
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="header_bottom">
           <div class="logo_area"><a href="/" class="logo"><img src="{% static 'images/logo.jpg'%}" alt=""></a></div>

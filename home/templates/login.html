@@ -1,0 +1,39 @@
+{% extends 'homebase.html' %}
+{% block title %} Login-{{ setting.company }} {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+{% block head %} <link rel="shortcut icon" type="image/x-icon" href="{{ setting.icon.url }}"> {% endblock %}
+{% block newsslider %}{% include 'newsslider.html' %}{% endblock %}
+{% block sidebar %}{% include 'sidebar.html' %}{% endblock %}
+{% block content %}
+    {% load static %}
+   <section id="contentSection">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="left_content">
+          <div class="contact_area">
+              <h2><span>Login</span></h2>
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}" role="alert">
+                        {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+              <form action="" method="post">
+                {% csrf_token %}
+                  <div class="form-group">
+                      <input class="input-group" type="text" name="username" placeholder="User Name">
+                  </div>
+                  <div class="form-group">
+                      <input class="input-group" type="password" name="password" placeholder="Last Name">
+                  </div>
+              <input type="submit" value="Login">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

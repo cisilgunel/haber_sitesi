@@ -1,4 +1,7 @@
 {% load static %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 <nav class="sidebar">
     <!-- close sidebar menu -->
     <div class="dismiss">
@@ -11,10 +14,31 @@
         <li><a class="scroll-link" href="/iletisim"> İletişim</a></li>
         <li><a class="scroll-link" href="/referanslar"> Reklamlar</a></li>
         <li><a class="scroll-link" href="/referanslar"> Reklam Ver</a></li>
-        <li><a class="scroll-link" href="#section-6"> Üye Girişi</a></li>
-        <li><a class="scroll-link" href="#section-6"> Üye Ol</a></li>
+        {% if user.id is not None %}
+            <li><a>{{ user.first_name }}</a></li>
+            <li><a href="/logout/">Çıkış</a></li>
+        {% else %}
+            <li><a class="scroll-link" href="/login/"> Üye Girişi</a></li>
+            <li><a class="scroll-link" href="/signup/"> Üye Ol</a></li>
+        {% endif %}
     </ul>
 </nav>
+
+<script>
+    $(function(){
+        $("#query").autocomplete({
+            source:"/search_auto/",
+            select:function (event,ui) {
+                AutoCompleteSelectHandler(event,ui)
+            },
+            minLength:2,
+        });
+    });
+    function AutoCompleteSelectHandler(event,ui) {
+        var selectedObj=ui.item;
+    }
+</script>
+
 <section id="navArea">
     <nav class="navbar navbar-inverse" role="navigation">
         <div id="navbar" class="navbar-collapse collapse">
@@ -33,17 +57,12 @@
                         {% endif %}
                     </li>
                 {% endrecursetree %}
-            <li><div class="header_top_right">
-                <p>
-                    <script> var tarih = new Date();
-                    document.write(tarih.toUTCString()); </script>
-                </p>
-            </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+            <li>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</li>
             </ul>
             <div class="size-a-2 bo-1-rad-22 of-hidden bocl11 m-t-4">
                 <form action="/search/" method="post" class="size-a-2">
                     {% csrf_token %}
-                    <input class="f1-s-1 cl6 plh9 s-full p-l-10" type="text" name="query" placeholder="Search">
+                    <input class="f1-s-1 cl6 plh9 s-full p-l-10" type="text" id="query" name="query" placeholder="Search">
                     <button class="flex-c-c size-a-1 ab-t-r fs-20 cl2 hov-cl10 trans-03">
                         <i class="fa fa-search"></i>
                     </button>
