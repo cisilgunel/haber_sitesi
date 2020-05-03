@@ -15,8 +15,14 @@
         <li><a class="scroll-link" href="/referanslar"> Reklamlar</a></li>
         <li><a class="scroll-link" href="/referanslar"> Reklam Ver</a></li>
         {% if user.id is not None %}
-            <li><a>{{ user.first_name }}</a></li>
-            <li><a href="/logout/">Çıkış</a></li>
+            <li><a href="#otherSections" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="otherSections">{{ user.first_name }}</a>
+                <ul class="collapse list-unstyled" id="otherSections">
+                    <li><a class="scroll-link" href="/user/">Kullanıcı Paneli</a></li>
+                     <li><a class="scroll-link" href="#">Haberlerim</a></li>
+                    <li><a class="scroll-link" href="#">Yorumlarım</a></li>
+                    <li><a class="scroll-link" href="/logout/">Çıkış</a></li>
+                </ul>
+            </li>
         {% else %}
             <li><a class="scroll-link" href="/login/"> Üye Girişi</a></li>
             <li><a class="scroll-link" href="/signup/"> Üye Ol</a></li>

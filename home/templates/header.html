@@ -6,8 +6,14 @@
           <div class="header_top_left">
             <ul class="top_nav">
                 {% if user.id is not None %}
-                    <li><a>{{ user.first_name }}</a></li>
-                    <li><a href="/logout/">Çıkış</a></li>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ user.first_name }}</a>
+                         <ul class="dropdown-menu" role="menu">
+                             <li><a href="/user/" >Kullanıcı Bilgileri</a></li>
+                             <li><a href="#" >Haberlerim</a></li>
+                             <li><a href="#" >Yorumlarım</a></li>
+                            <li><a href="/logout/">Çıkış</a></li>
+                        </ul>
+                    </li>
                 {% else %}
                     <li><a href="/login/">Giriş Yap</a></li>
                     <li><a href="/signup/">Üye Ol</a></li>

@@ -1,0 +1,64 @@
+{% extends 'homebase.html' %}
+{% block title %} İletisim-{{ setting.company }} {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+{% block head %} <link rel="shortcut icon" type="image/x-icon" href="{{ setting.icon.url }}"> {% endblock %}
+{% block newsslider %}{% include 'newsslider.html' %}{% endblock %}
+{% block sidebar %}{% include 'sidebar.html' %}{% endblock %}
+{% block content %}
+    {% load static %}
+   <section id="contentSection">
+    <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-4">
+        <div class="left_content">
+          <div class="contact_area">
+              <h2><span>User Panel</span></h2>
+                <ul>
+                    <li><a href="/user">User Profile</a></li>
+                    <li><a href="#">My News</a></li>
+                    <li><a href="#">My Comments</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8 col-md-8 col-sm-8">
+        <aside class="right_content">
+          <div class="single_sidebar">
+            <h2>User Information</h2>
+            <table class="table">
+                <tr>
+                    <th class="text-center"></th>
+                    <td class=""><img width="240dp" height="300dp" src="{{ profile.image.url }}" alt=""></td>
+                </tr>
+                <tr>
+                    <th class="text-left">Name Surname</th>
+                    <td class="text-left">{{ profile.user_name }}</td>
+                </tr>
+                <tr>
+                    <th class="text-left">Email</th>
+                    <td class="text-left">{{ profile.user.email }}</td>
+                </tr>
+                <tr>
+                    <th class="text-left">Phone</th>
+                    <td class="text-left">{{ profile.phone }}</td>
+                </tr>
+                <tr>
+                    <th class="text-left">Address</th>
+                    <td class="text-left">{{ profile.address }}</td>
+                </tr>
+                <tr>
+                    <th class="text-left">City</th>
+                    <td class="text-left">{{ profile.city }}</td>
+                </tr>
+                <tr>
+                    <th class="text-left">Country</th>
+                    <td class="text-left">{{ profile.country }}</td>
+                </tr>
+            </table>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+{% endblock %}
