@@ -1,0 +1,67 @@
+{% extends 'homebase.html' %}
+{% block title %} Comments-{{ setting.company }} {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+{% block head %} <link rel="shortcut icon" type="image/x-icon" href="{{ setting.icon.url }}"> {% endblock %}
+{% block newsslider %}{% include 'newsslider.html' %}{% endblock %}
+{% block sidebar %}{% include 'sidebar.html' %}{% endblock %}
+{% block content %}
+    {% load static %}
+   <section id="contentSection">
+    <div class="row">
+      <div class="col-lg-2 col-md-2 col-sm-2">
+        <div class="left_content">
+          <div class="contact_area">
+              <h2><span>User Panel</span></h2>
+                <ul>
+                    <li><a href="/user">User Profile</a></li>
+                    <li><a href="/user/mynews/">My News</a></li>
+                    <li><a href="/user/comments/">My Comments</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-10 col-md-10 col-sm-10">
+        <aside class="right_content">
+          <div class="single_sidebar">
+            <h2>User Comments</h2>
+            {% if messages %}
+                {% for message in messages %}
+                  <div style="color: #0ab20a; font-size: medium">
+                    {{ message|safe }}
+                  </div>
+              {% endfor %}
+            {% endif %}<br>
+            <table class="table">
+                <tr>
+                    <th class="text-left">News</th>
+                    <th class="text-left">Rate </th>
+                    <th class="text-left">Subject</th>
+                    <th class="text-left">Comment</th>
+                    <th class="text-left">Status</th>
+                    <th class="text-left">Date</th>
+                    <th class="text-left">Detail</th>
+                </tr>
+                {% for rs in comments %}
+                    <tr>
+                        <td class="text-left">
+                            <a href="/new/{{ rs.news_id }}/{{ rs.news.slug }}">
+                               <strong>{{ rs.news.title }}</strong>
+                            </a>
+                        </td>
+                        <td class="text-left">{{ rs.rate }} </td>
+                        <td class="text-left">{{ rs.subject }}</td>
+                        <td class="text-left">{{ rs.comment }}</td>
+                        <td class="text-left">{{ rs.status }}</td>
+                        <td class="text-left">{{ rs.create_at }}</td>
+                        <td class="text-left"><a class="btn" href="/user/deletecomment/{{ rs.id }}" style="background-color: #0a8ec4;color: #080808" onclick="return confirm('Will be delete ! Are you sure?')">Delete</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+{% endblock %}

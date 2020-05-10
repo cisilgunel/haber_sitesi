@@ -2,27 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c770474b-9ac1-4138-85ff-9f011d98f028" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/user/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/user_profile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/migrations/0007_userprofile.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/news/migrations/0007_auto_20200410_2047.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/news/migrations/0008_news_lastnews.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/news/migrations/0009_comment.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/news/migrations/0010_auto_20200501_2125.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/news/migrations/0011_auto_20200503_1355.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/news/migrations/0012_auto_20200503_1427.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/news/migrations/0013_news_user.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/templates/change_password.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/templates/user_comments.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/templates/user_mynews.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/templates/user_update.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/content.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/content.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/new_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/new_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/news.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/news_search.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/news_search.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/sidebar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/news/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/news/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/templates/user_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +147,10 @@
       <workItem from="1588244292448" duration="14248000" />
       <workItem from="1588326151363" duration="9479000" />
       <workItem from="1588433648252" duration="12439000" />
-      <workItem from="1588500743499" duration="18574000" />
+      <workItem from="1588500743499" duration="18826000" />
+      <workItem from="1588855677897" duration="2136000" />
+      <workItem from="1589032906036" duration="5622000" />
+      <workItem from="1589124432923" duration="11081000" />
     </task>
     <task id="LOCAL-00001" summary="hakkımızda, iletişim ve referanslar sayfaları eklendi,slider değiştirildi, yönetici paneli güncellendi">
       <created>1586120272453</created>
@@ -184,7 +187,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588513585675</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Üye paneli, üye profil blgileri ile ek bilgiler ve üye resimi ekleme işlemleri yapıldı.">
+      <created>1588522382810</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1588522382810</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,7 +229,8 @@
     <MESSAGE value="Anasayfa haberlerin gösterimi ve haber detay sayfası yapıldı." />
     <MESSAGE value="habere yorum ve puan ekleme, haber arama işlemleri yapıldı" />
     <MESSAGE value="haber aramada otomatik tamamlama, otomatik slag oluşturma,user login, logout ve sign up işlemleri yapıldı" />
-    <option name="LAST_COMMIT_MESSAGE" value="haber aramada otomatik tamamlama, otomatik slag oluşturma,user login, logout ve sign up işlemleri yapıldı" />
+    <MESSAGE value="Üye paneli, üye profil blgileri ile ek bilgiler ve üye resimi ekleme işlemleri yapıldı." />
+    <option name="LAST_COMMIT_MESSAGE" value="Üye paneli, üye profil blgileri ile ek bilgiler ve üye resimi ekleme işlemleri yapıldı." />
   </component>
   <component name="WindowStateProjectService">
     <state x="137" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588434637460">
@@ -230,10 +241,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="114" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1586106594525" />
-    <state x="283" y="0" key="CommitChangelistDialog2" timestamp="1588513582798">
+    <state x="262" y="0" key="CommitChangelistDialog2" timestamp="1588522380897">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="283" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1588513582798" />
+    <state x="262" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1588522380897" />
     <state width="269" height="442" key="Diff.GoToChangePopup" timestamp="1586120636557">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -250,17 +261,17 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="515" y="89" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1586120539720" />
-    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1588513619847">
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1588522407956">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1588513619847" />
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1588522407956" />
     <state x="494" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586119909714">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="494" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1586119909714" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1586089810407">
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1589131320025">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1586089810407" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1589131320025" />
   </component>
 </project>

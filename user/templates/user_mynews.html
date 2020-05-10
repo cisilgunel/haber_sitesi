@@ -1,0 +1,69 @@
+{% extends 'homebase.html' %}
+{% block title %} News-{{ setting.company }} {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+{% block head %} <link rel="shortcut icon" type="image/x-icon" href="{{ setting.icon.url }}"> {% endblock %}
+{% block newsslider %}{% include 'newsslider.html' %}{% endblock %}
+{% block sidebar %}{% include 'sidebar.html' %}{% endblock %}
+{% block content %}
+    {% load static %}
+   <section id="contentSection">
+    <div class="row">
+      <div class="col-lg-2 col-md-2 col-sm-2">
+        <div class="left_content">
+          <div class="contact_area">
+              <h2><span>User Panel</span></h2>
+                <ul>
+                    <li><a href="/user">User Profile</a></li>
+                    <li><a href="/user/mynews/">My News</a></li>
+                    <li><a href="/user/comments/">My Comments</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-10 col-md-10 col-sm-10">
+        <aside class="right_content">
+          <div class="single_sidebar">
+            <h2>User Comments</h2>
+          {% if messages %}
+                {% for message in messages %}
+                  <div style="color: #0ab20a; font-size: medium">
+                    {{ message|safe }}
+                  </div>
+              {% endfor %}
+            {% endif %}
+            <br>
+           &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+              <a class="btn" style="background-color: #0a8ec4;color: #080808;" href="/user/addnews/">+New News</a>
+          <br><br>
+            <table class="table">
+                <tr>
+                    <th class="text-left">Image</th>
+                    <th class="text-left">News</th>
+                    <th class="text-left">Category</th>
+                    <th class="text-left">Status</th>
+                    <th class="text-left">Date</th>
+                    <th class="text-left">Detail</th>
+                </tr>
+                {% for rs in news %}
+                    <tr>
+                        <td class=""><img width="50dp" height="50dp" src="{{ rs.image.url }}" alt=""></td>
+                        <td class="text-left">
+                            <a href="/new/{{ rs.id }}/{{ rs.slug }}">
+                               <strong>{{ rs.title }}</strong>
+                            </a>
+                        </td>
+                        <td class="text-left">{{ rs.Category.title }} </td>
+                        <td class="text-left">{{ rs.status }}</td>
+                        <td class="text-left">{{ rs.create_at }}</td>
+                        <td class="text-left"><a class="btn" href="/user/deletenews/{{ rs.id }}" style="background-color: #0a8ec4;color: #080808" onclick="return confirm('Will be delete ! Are you sure?')">Delete</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+{% endblock %}

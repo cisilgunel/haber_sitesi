@@ -1,5 +1,5 @@
 {% extends 'homebase.html' %}
-{% block title %} İletisim-{{ setting.company }} {% endblock %}
+{% block title %} User Profile-{{ setting.company }} {% endblock %}
 {% block keywords %} {{ setting.keywords }} {% endblock %}
 {% block description %} {{ setting.description }} {% endblock %}
 {% block head %} <link rel="shortcut icon" type="image/x-icon" href="{{ setting.icon.url }}"> {% endblock %}
@@ -9,27 +9,38 @@
     {% load static %}
    <section id="contentSection">
     <div class="row">
-      <div class="col-lg-4 col-md-4 col-sm-4">
+      <div class="col-lg-3 col-md-3 col-sm-3">
         <div class="left_content">
           <div class="contact_area">
               <h2><span>User Panel</span></h2>
                 <ul>
                     <li><a href="/user">User Profile</a></li>
-                    <li><a href="#">My News</a></li>
-                    <li><a href="#">My Comments</a></li>
+                    <li><a href="/user/mynews/">My News</a></li>
+                    <li><a href="/user/comments/">My Comments</a></li>
                     <li><a href="/logout">Logout</a></li>
                 </ul>
           </div>
         </div>
       </div>
-      <div class="col-lg-8 col-md-8 col-sm-8">
+      <div class="col-lg-9 col-md-9 col-sm-9">
         <aside class="right_content">
           <div class="single_sidebar">
             <h2>User Information</h2>
+              {% if messages %}
+                {% for message in messages %}
+                  <div style="color: #0ab20a; font-size: medium">
+                    {{ message|safe }}
+                  </div>
+              {% endfor %}
+            {% endif %}<br>
             <table class="table">
                 <tr>
-                    <th class="text-center"></th>
-                    <td class=""><img width="240dp" height="300dp" src="{{ profile.image.url }}" alt=""></td>
+                    <th class="text-left">
+                        <a href="/user/update" class="btn" style="background-color: #0a8ec4; color: #2c2c2c;"> Update Profile </a>
+                        &emsp;
+                        <a href="/user/password" class="btn" style="background-color: #0a8ec4; color: #2c2c2c;"> Change Password </a>
+                    </th>
+                    <td class=""><img width="228dp" height="288dp" src="{{ profile.image.url }}" alt=""></td>
                 </tr>
                 <tr>
                     <th class="text-left">Name Surname</th>

@@ -44,6 +44,7 @@ class Category(MPTTModel):
 class News(models.Model):
     STATUS=(('True','Evet'),('False','Hayır'),)
     Category=models.ForeignKey(Category,on_delete=models.CASCADE)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
     title=models.CharField(max_length=255)
     keywords=models.CharField(blank=True,max_length=255)
     description=models.CharField(blank=True,max_length=255)

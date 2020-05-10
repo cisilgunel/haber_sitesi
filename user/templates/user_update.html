@@ -1,0 +1,47 @@
+{% extends 'homebase.html' %}
+{% block title %} user Profile Update-{{ setting.company }} {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+{% block head %} <link rel="shortcut icon" type="image/x-icon" href="{{ setting.icon.url }}"> {% endblock %}
+{% block newsslider %}{% include 'newsslider.html' %}{% endblock %}
+{% block sidebar %}{% include 'sidebar.html' %}{% endblock %}
+{% block content %}
+    {% load static %}
+   <section id="contentSection">
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-3">
+        <div class="left_content">
+          <div class="contact_area">
+              <h2><span>User Panel</span></h2>
+                <ul>
+                    <li><a href="/user">User Profile</a></li>
+                    <li><a href="/user/mynews/">My News</a></li>
+                    <li><a href="/user/comments/">My Comments</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-9 col-md-9 col-sm-9">
+        <aside class="right_content">
+          <div class="single_sidebar">
+            <h2>User Information Update</h2>
+            <div class="media">
+                <img src="{{ user.userprofile.image.url }}" style="height: 150px; border-radius: 45px">
+            </div><br>
+              <form method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <fieldset class="form-group">
+                      {{ user_form.as_p }}
+                      {{ profile_form.as_p }}
+                  </fieldset>
+                  <div class="form-group">
+                      <button class="btn" type="submit" style="background-color: #0a8ec4; color: #2c2c2c; ">Update</button>
+                  </div>
+              </form>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+{% endblock %}
