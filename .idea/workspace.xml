@@ -2,25 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c770474b-9ac1-4138-85ff-9f011d98f028" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/home/migrations/0007_userprofile.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news/migrations/0007_auto_20200410_2047.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news/migrations/0008_news_lastnews.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news/migrations/0009_comment.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news/migrations/0010_auto_20200501_2125.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news/migrations/0011_auto_20200503_1355.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news/migrations/0012_auto_20200503_1427.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/news/migrations/0013_news_user.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/change_password.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/user_comments.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/user_mynews.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/user_update.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/static/ckeditor_4.14.0_standard.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/templates/faq.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/templates/kunye.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/templates/reklamver.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/templates/news_gallery.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/templates/user_addnews.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/static/css/animate.css" beforeDir="false" afterPath="$PROJECT_DIR$/home/static/css/animate.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/static/css/font.css" beforeDir="false" afterPath="$PROJECT_DIR$/home/static/css/font.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/static/css/jquery.fancybox.css" beforeDir="false" afterPath="$PROJECT_DIR$/home/static/css/jquery.fancybox.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/static/css/li-scroller.css" beforeDir="false" afterPath="$PROJECT_DIR$/home/static/css/li-scroller.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/static/css/slick.css" beforeDir="false" afterPath="$PROJECT_DIR$/home/static/css/slick.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/home/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/static/css/theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/home/static/css/theme.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/static/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/home/static/js/custom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/content.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/content.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/homebase.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/homebase.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/new_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/new_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/news.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/news_search.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/news_search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/newsslider.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/newsslider.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/referanslar.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/referanslar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/sidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/news/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/news/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/templates/user_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/templates/user_mynews.html" beforeDir="false" afterPath="$PROJECT_DIR$/user/templates/user_mynews.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
     </list>
@@ -72,13 +86,13 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/user/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/home/templates" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Django\mysite\home\templates" />
       <recent name="C:\Django\mysite\user\templates" />
       <recent name="C:\Django\mysite\user" />
-      <recent name="C:\Django\mysite\home\templates" />
       <recent name="C:\Django\mysite\home" />
       <recent name="C:\Django\mysite\TEMPS\newsfeed\assets\css" />
     </key>
@@ -150,7 +164,17 @@
       <workItem from="1588500743499" duration="18826000" />
       <workItem from="1588855677897" duration="2136000" />
       <workItem from="1589032906036" duration="5622000" />
-      <workItem from="1589124432923" duration="11081000" />
+      <workItem from="1589124432923" duration="11633000" />
+      <workItem from="1589191184080" duration="11376000" />
+      <workItem from="1589276428790" duration="16611000" />
+      <workItem from="1589301938440" duration="1008000" />
+      <workItem from="1589309123318" duration="6950000" />
+      <workItem from="1589446462686" duration="774000" />
+      <workItem from="1589554996640" duration="719000" />
+      <workItem from="1589804161207" duration="591000" />
+      <workItem from="1590231870912" duration="10648000" />
+      <workItem from="1590322938222" duration="9757000" />
+      <workItem from="1590395696004" duration="9254000" />
     </task>
     <task id="LOCAL-00001" summary="hakkımızda, iletişim ve referanslar sayfaları eklendi,slider değiştirildi, yönetici paneli güncellendi">
       <created>1586120272453</created>
@@ -194,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1588522382810</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Kullanıcı bilgilerini ve şifresini güncelleme, Üye haberleri listeleme ve silme, Üye yorumları listeleme ve silme işlemleri yapıldı.">
+      <created>1589144360452</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1589144360452</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,7 +261,8 @@
     <MESSAGE value="habere yorum ve puan ekleme, haber arama işlemleri yapıldı" />
     <MESSAGE value="haber aramada otomatik tamamlama, otomatik slag oluşturma,user login, logout ve sign up işlemleri yapıldı" />
     <MESSAGE value="Üye paneli, üye profil blgileri ile ek bilgiler ve üye resimi ekleme işlemleri yapıldı." />
-    <option name="LAST_COMMIT_MESSAGE" value="Üye paneli, üye profil blgileri ile ek bilgiler ve üye resimi ekleme işlemleri yapıldı." />
+    <MESSAGE value="Kullanıcı bilgilerini ve şifresini güncelleme, Üye haberleri listeleme ve silme, Üye yorumları listeleme ve silme işlemleri yapıldı." />
+    <option name="LAST_COMMIT_MESSAGE" value="Kullanıcı bilgilerini ve şifresini güncelleme, Üye haberleri listeleme ve silme, Üye yorumları listeleme ve silme işlemleri yapıldı." />
   </component>
   <component name="WindowStateProjectService">
     <state x="137" y="22" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588434637460">
@@ -241,10 +273,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="413" y="114" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1586106594525" />
-    <state x="262" y="0" key="CommitChangelistDialog2" timestamp="1588522380897">
+    <state x="262" y="0" key="CommitChangelistDialog2" timestamp="1589144357243">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="262" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1588522380897" />
+    <state x="262" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1589144357243" />
     <state width="269" height="442" key="Diff.GoToChangePopup" timestamp="1586120636557">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -261,10 +293,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="515" y="89" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1586120539720" />
-    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1588522407956">
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2" timestamp="1589144391660">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1588522407956" />
+    <state x="275" y="100" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1589144391660" />
     <state x="494" y="283" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586119909714">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

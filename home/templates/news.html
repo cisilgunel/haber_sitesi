@@ -14,121 +14,112 @@
                 <h2><span>{{ categorydata.title }}</span></h2>
                 {% for rs in news %}
                     <div class="col-sm-6 p-r-25 p-r-15-sr991">
-                        <!-- Item latest -->
                         <div class="m-b-45">
-                            <a href="/new/{{ rs.id }}/{{ rs.slug }}" class="wrap-pic-w hov1 trans-03">
+                            <a href="/new/{{ rs.id }}/{{ rs.slug }}" class="wrap-pic-s hov1 trans-03">
                                 <img src="{{ rs.image.url }}" alt="IMG">
                             </a>
                             <div class="p-t-16">
-                                <h5 class="p-b-5">
+                                <h5 class="p-b-5 size-h-3">
                                     <a href="/new/{{ rs.id }}/{{ rs.slug }}" class="f1-m-3 cl2 hov-cl10 trans-03">
                                         {{ rs.title }}
                                     </a>
                                 </h5>
                                 <span class="cl8">
-                              <a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
-                                  by John Alvarado
-                              </a>
-                              <span class="f1-s-3 m-rl-3">
-                                  -
-                              </span>
-                                <span class="f1-s-3">
-                                    {{ rs.update_at }}
+                                  <a class="f1-s-4 cl8 hov-cl10 trans-03">
+                                      {{rs.user}}
+                                  </a>
+                                  <span class="f1-s-3 m-rl-3">
+                                      -
+                                  </span>
+                                    <span class="f1-s-3">
+                                        {{ rs.update_at }}
+                                    </span>
                                 </span>
-                            </span>
                             </div>
                         </div>
                     </div>
                 {% endfor %}
             </div>
         </div>
-      <div class="col-lg-4 col-md-4 col-sm-4">
-        <aside class="right_content">
-          <div class="single_sidebar">
-            <h2><span>Popüler Haberler</span></h2>
-            <ul class="spost_nav">
-                {% for rs in popularNews %}
-              <li>
-                <div class="media wow fadeInDown"> <a href="/new/{{ rs.id }}/{{ rs.slug }}" class="media-left"> <img alt="" src="{{ rs.image.url }}"> </a>
-                  <div class="media-body"> <a href="/new/{{ rs.id }}/{{ rs.slug }}" class="catg_title"> {{ rs.title }}</a> </div>
+        <div class="col-lg-4 col-md-4 col-sm-4">
+           <aside class="right_content">
+             <div class="single_sidebar">
+               <h2><span>Popüler Haberler</span></h2>
+               <ul class="spost_nav">
+                    {% for rs in popularNews %}
+                      <li>
+                        <div class="media wow fadeInDown"> <a href="/new/{{ rs.id }}/{{ rs.slug }}" class="media-left"> <img alt="" src="{{ rs.image.url }}"> </a>
+                          <div class="media-body"> <a href="/new/{{ rs.id }}/{{ rs.slug }}" class="catg_title"> {{ rs.title }}</a> </div>
+                        </div>
+                      </li>
+                    {% endfor %}
+                </ul>
+             </div>
+             <div class="single_sidebar">
+                <ul class="nav nav-tabs" role="tablist">
+                  <li role="presentation" class="active"><a href="#category" aria-controls="home" role="tab" data-toggle="tab">Kategori</a></li>
+                  <li role="presentation"><a href="#video" aria-controls="profile" role="tab" data-toggle="tab">Video</a></li>
+                  <li role="presentation"><a href="#comments" aria-controls="messages" role="tab" data-toggle="tab">Yorumlar</a></li>
+                </ul>
+                <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane active" id="category">
+                    <ul>
+                      {% load mptt_tags %}
+                       {% recursetree category %}
+                         <li class="cat-item"><a href="/category/{{ node.id }}/{{ node.slug }}">{{node.title}}</a></li>
+                       {% endrecursetree %}
+                    </ul>
+                  </div>
+                  <div role="tabpanel" class="tab-pane" id="video">
+                    <div class="vide_area">
+                      <iframe width="100%" height="250" src="http://www.youtube.com/embed/h5QWbURNEpA?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                  </div>
+                  <div role="tabpanel" class="tab-pane" id="comments">
+                    <ul class="spost_nav">
+                       {% for rs in commentnews %}
+                      <li>
+                        <div class="media wow fadeInDown"> <a href="/new/{{ rs.news_id }}/{{ rs.news.slug }}" class="media-left"> <img alt="" src="{{ rs.news.image.url }}"> </a>
+                          <div class="media-body"> <a href="/new/{{ rs.news_id }}/{{ rs.news.slug }}" class="catg_title">{{ rs.news.title }}</a> </div>
+                        </div>
+                      </li>
+                        {% endfor %}
+                    </ul>
+                  </div>
                 </div>
-              </li>
-                {% endfor %}
-            </ul>
-          </div>
-            <div class="single_sidebar">
-            <ul class="nav nav-tabs" role="tablist">
-              <li role="presentation" class="active"><a href="#category" aria-controls="home" role="tab" data-toggle="tab">Kategori</a></li>
-              <li role="presentation"><a href="#video" aria-controls="profile" role="tab" data-toggle="tab">Video</a></li>
-              <li role="presentation"><a href="#comments" aria-controls="messages" role="tab" data-toggle="tab">Yorumlar</a></li>
-            </ul>
-            <div class="tab-content">
-              <div role="tabpanel" class="tab-pane active" id="category">
+             </div>
+             <div class="single_sidebar wow fadeInDown">
+               <h2><span>Sponsor</span></h2>
+               <a class="sideAdd" href="#"><img src="{% static 'images/add_img.jpg'%}" alt=""></a>
+             </div>
+             <div class="single_sidebar wow fadeInDown">
+                <h2><span>Haber Arşivi</span></h2>
+                <select class="catgArchive">
+                  <option>Kategori Seç</option>
+                  <option href="/category/25/Yasam">Yaşam</option>
+                  <option href="/category/15/Spor">Spor</option>
+                  <option href="/category/16/Teknoloji">Teknoloji</option>
+                  <option href="/category/18/Ekonomi">Ekonomi</option>
+                  <option href="/category/15/Magazin">Magazin</option>
+                  <option href="/category/21/Dunya">Dünya</option>
+                </select>
+             </div>
+             <div class="single_sidebar wow fadeInDown">
+                <h2><span>Bağlantılar</span></h2>
                 <ul>
-                  {% load mptt_tags %}
-                {% recursetree category %}
-                  <li class="cat-item"><a href="/category/{{ node.id }}/{{ node.slug }}">{{node.title}}</a></li>
-                {% endrecursetree %}
+                  <li><a href="/kunye/">Künye</a></li>
+                  <li><a href="/iletisim">İletişim</a></li>
+                    {% if user.id is not None %}
+                      <li><a href="/user/">Üye Paneli</a></li>
+                      <li><a href="/logout/">Çıkış</a></li>
+                    {% else %}
+                        <li><a href="/login/">Üye Girişi</a></li>
+                        <li><a href="/signup/">Üye Ol</a></li>
+                    {% endif %}
                 </ul>
-              </div>
-              <div role="tabpanel" class="tab-pane" id="video">
-                <div class="vide_area">
-                  <iframe width="100%" height="250" src="http://www.youtube.com/embed/h5QWbURNEpA?feature=player_detailpage" frameborder="0" allowfullscreen></iframe>
-                </div>
-              </div>
-              <div role="tabpanel" class="tab-pane" id="comments">
-                <ul class="spost_nav">
-                  <li>
-                    <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img1.jpg'%}"> </a>
-                      <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 1</a> </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img2.jpg'%}"> </a>
-                      <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 2</a> </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img1.jpg'%}"> </a>
-                      <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 3</a> </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img2.jpg'%}"> </a>
-                      <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 4</a> </div>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="single_sidebar wow fadeInDown">
-            <h2><span>Sponsor</span></h2>
-            <a class="sideAdd" href="#"><img src="{% static 'images/add_img.jpg'%}" alt=""></a> </div>
-          <div class="single_sidebar wow fadeInDown">
-            <h2><span>Haber Arşivi</span></h2>
-            <select class="catgArchive">
-              <option>Kategori Seç</option>
-              <option href="/category/25/Yasam">Yaşam</option>
-              <option href="/category/15/Spor">Spor</option>
-              <option href="/category/16/Teknoloji">Teknoloji</option>
-                <option href="/category/18/Ekonomi">Ekonomi</option>
-              <option href="/category/15/Magazin">Magazin</option>
-              <option href="/category/21/Dunya">Dünya</option>
-            </select>
-          </div>
-          <div class="single_sidebar wow fadeInDown">
-            <h2><span>Bağlantılar</span></h2>
-            <ul>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Rss</a></li>
-              <li><a href="#">Künye</a></li>
-              <li><a href="/login/">Üye Girişi</a></li>
-                <li><a href="/signup/">Üye Ol</a></li>
-            </ul>
-          </div>
-        </aside>
-      </div>
+             </div>
+           </aside>
+        </div>
     </div>
   </section>
 {% endblock %}

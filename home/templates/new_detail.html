@@ -1,5 +1,5 @@
 {% extends 'homebase.html' %}
-{% block title %} {{ new.title }} News {% endblock %}
+{% block title %} {{ new.title }} {% endblock %}
 {% block keywords %} {{ new.keywords }} {% endblock %}
 {% block description %} {{ categorydata.description }} {% endblock %}
 {% block head %} <link rel="shortcut icon" type="image/x-icon" href="{{ setting.icon.url }}"> {% endblock %}
@@ -18,17 +18,24 @@
               <li class="active">{{ new.description }}</li>
             </ol>
             <h1>{{ new.title }}</h1>
-            <div class="post_commentbox"> <a href="#"><i class="fa fa-user"></i>Wpfreeware</a> <span><i class="fa fa-calendar"></i>{{ new.update_at }}</span> <a href="#"><i class="fa fa-tags"></i>{{ new.Category }}</a> </div>
+            <div class="post_commentbox"> <a href="#"><i class="fa fa-user"></i>{{new.user}}</a> <span><i class="fa fa-calendar"></i>{{ new.update_at }}</span> <a href="#"><i class="fa fa-tags"></i>{{ new.Category }}</a> </div>
             <div class="single_page_content">
+                <div class="slick_slider">
+                <div class="single_iteam"> <img src="{{ new.image.url }}" alt=""></div>
+                {% for rs in image %}
+                   <div class="single_iteam"> <img src="{{ rs.image.url }}" alt=""></div>
+                {% endfor %}
+            </div>
+            <br>
               <p>{{ new.detail | safe }}</p>
             </div>
             <div class="social_link">
               <ul class="sociallink_nav">
-                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                <li><a href="{{ setting.facebook }}"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="{{ setting.twitter }}"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="{{ setting.googleplus }}"><i class="fa fa-google-plus"></i></a></li>
+                <li><a href="{{ setting.flickr }}"><i class="fa fa-flickr"></i></a></li>
+                <li><a href="{{ setting.printerest }}"><i class="fa fa-pinterest"></i></a></li>
               </ul>
             </div>
             <div class="col-md-12">
@@ -65,11 +72,11 @@
                         <div class="input-rating">
                             <strong class="text-uppercase">Your Rating: </strong>
                             <div class="stars">
-                                <input type="radio" id="star5" name="rate" value="5"/><label for="star5"></label>
-                                <input type="radio" id="star4" name="rate" value="4"/><label for="star4"></label>
-                                <input type="radio" id="star3" name="rate" value="3"/><label for="star3"></label>
-                                <input type="radio" id="star2" name="rate" value="2"/><label for="star2"></label>
-                                <input type="radio" id="star1" name="rate" value="1"/><label for="star1"></label>
+                                <input type="radio" id="star5" name="rate" value="5"/><label for="star5"> ***** </label>
+                                <input type="radio" id="star4" name="rate" value="4"/><label for="star4"> **** </label>
+                                <input type="radio" id="star3" name="rate" value="3"/><label for="star3"> *** </label>
+                                <input type="radio" id="star2" name="rate" value="2"/><label for="star2"> ** </label>
+                                <input type="radio" id="star1" name="rate" value="1"/><label for="star1"> * </label>
                             </div>
                         </div>
                     </div>
@@ -133,26 +140,13 @@
               </div>
               <div role="tabpanel" class="tab-pane" id="comments">
                 <ul class="spost_nav">
+                    {% for rs in commentnews %}
                   <li>
-                    <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img1.jpg'%}"> </a>
-                      <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 1</a> </div>
+                    <div class="media wow fadeInDown"> <a href="/new/{{ rs.news_id }}/{{ rs.news.slug }}" class="media-left"> <img alt="" src="{{ rs.news.image.url }}"> </a>
+                      <div class="media-body"> <a href="/new/{{ rs.news_id }}/{{ rs.news.slug }}" class="catg_title">{{ rs.news.title }}</a> </div>
                     </div>
                   </li>
-                  <li>
-                    <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img2.jpg'%}"> </a>
-                      <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 2</a> </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img1.jpg'%}"> </a>
-                      <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 3</a> </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img2.jpg'%}"> </a>
-                      <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 4</a> </div>
-                    </div>
-                  </li>
+                    {% endfor %}
                 </ul>
               </div>
             </div>
@@ -175,11 +169,15 @@
           <div class="single_sidebar wow fadeInDown">
             <h2><span>Bağlantılar</span></h2>
             <ul>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Rss</a></li>
-              <li><a href="#">Künye</a></li>
-              <li><a href="/login/">Üye Girişi</a></li>
+              <li><a href="/kunye/">Künye</a></li>
+              <li><a href="/iletisim">İletişim</a></li>
+                {% if user.id is not None %}
+              <li><a href="/user/">Üye Paneli</a></li>
+                <li><a href="/logout/">Çıkış</a></li>
+                {% else %}
+                    <li><a href="/login/">Üye Girişi</a></li>
                 <li><a href="/signup/">Üye Ol</a></li>
+                {% endif %}
             </ul>
           </div>
         </aside>

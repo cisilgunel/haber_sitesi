@@ -4,17 +4,23 @@
       <div class="col-lg-12 col-md-12">
         <div class="latest_newsarea"> <span>Son Dakika</span>
           <ul id="ticker01" class="news_sticker">
-            {% for rs in lastnews %}<li><a href="#"><img src="{{ rs.image.url }}" alt="">{{ rs.title }}</a></li>{% endfor %}
+            {% for rs in lastnews %}
+                <li>
+                    <a href="/new/{{ rs.id }}/{{ rs.slug }}">
+                        <img src="{{ rs.image.url }}" alt="">{{ rs.title }}
+                    </a>
+                </li>
+            {% endfor %}
           </ul>
           <div class="social_area">
             <ul class="social_nav">
-              <li class="facebook"><a href="#"></a></li>
-              <li class="twitter"><a href="#"></a></li>
-                <li class="flickr"><a href="#"></a></li>
-              <li class="pinterest"><a href="#"></a></li>
-              <li class="googleplus"><a href="#"></a></li>
-              <li class="youtube"><a href="#"></a></li>
-              <li class="mail"><a href="#"></a></li>
+              <li class="facebook"><a href="{{ setting.facebook }}"></a></li>
+              <li class="twitter"><a href="{{ setting.twitter }}"></a></li>
+                <li class="flickr"><a href="{{ setting.flickr }}"></a></li>
+              <li class="pinterest"><a href="{{ setting.printerest }}"></a></li>
+              <li class="googleplus"><a href="{{ setting.googleplus }}"></a></li>
+              <li class="youtube"><a href="{{ setting.youtube }}"></a></li>
+              <li class="mail"><a href="{{ setting.email }}"></a></li>
             </ul>
           </div>
         </div>

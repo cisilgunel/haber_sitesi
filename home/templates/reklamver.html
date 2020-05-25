@@ -1,0 +1,23 @@
+{% extends 'homebase.html' %}
+{% block title %} Reklam ver-{{ setting.company }} {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }} {% endblock %}
+{% block head %} <link rel="shortcut icon" type="image/x-icon" href="{{ setting.icon.url }}"> {% endblock %}
+{% block newsslider %}{% include 'newsslider.html' %}{% endblock %}
+{% block sidebar %}{% include 'sidebar.html' %}{% endblock %}
+{% block content %}
+    {% load static %}
+   <section id="contentSection">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="left_content">
+          <div class="contact_area">
+            <h2>Reklam ver</h2>
+            {{ setting.reklamver|safe }}
+              <a href="/iletisim" class="btn" style="background-color: #0a8ec4; color: #2c2c2c;"> Reklam Vermek İçin Bize Yazın --> </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

@@ -12,8 +12,9 @@
         <li><a class="scroll-link" href="/hakkimizda">Hakkımızda</a></li>
         <li><a class="scroll-link" href="/kunye"> Künye</a></li>
         <li><a class="scroll-link" href="/iletisim"> İletişim</a></li>
+        <li><a class="scroll-link" href="/faq"> Sık sorulan sorular</a></li>
         <li><a class="scroll-link" href="/referanslar"> Reklamlar</a></li>
-        <li><a class="scroll-link" href="/referanslar"> Reklam Ver</a></li>
+        <li><a class="scroll-link" href="/reklamver"> Reklam Ver</a></li>
         {% if user.id is not None %}
             <li><a href="#otherSections" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" role="button" aria-controls="otherSections">{{ user.first_name }}</a>
                 <ul class="collapse list-unstyled" id="otherSections">
@@ -59,7 +60,8 @@
                            data-toggle="dropdown" role="button" aria-expanded="false" {% endif %} >{{ node.title }}</a>
                         {% if not node.is_leaf_node %}
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="/category/{{ children.id }}/{{ node.slug }}">{{ children }}</a></li>
+                                <li>{{ children }}</li>
+                            <li><a href="/category/{{ node.id }}/{{ node.slug }}" class="dropdown-toggle">Tümü</a></li>
                             </ul>
                         {% endif %}
                     </li>

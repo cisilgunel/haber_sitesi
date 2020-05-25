@@ -7,13 +7,14 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 from home.models import Setting, UserProfile
-from news.models import News, Category, Comment
+from news.models import News, Category, Comment, Images
 from user.forms import UserUpdateForm, ProfileUpdateForm
+from user.models import AddNewsForm, NewsImageForm, NImages
 
 
 def index(request):
     setting = Setting.objects.get(pk=1)
-    lastnews = News.objects.all()[:9]
+    lastnews = News.objects.filter(lastNews='True').order_by('?')[:9]
     category = Category.objects.all()
     current_user=request.user
     profile=UserProfile.objects.get(user_id=current_user.id)
@@ -32,7 +33,7 @@ def user_update(request):
 
     else:
         setting = Setting.objects.get(pk=1)
-        lastnews = News.objects.all()[:9]
+        lastnews = News.objects.filter(lastNews='True').order_by('?')[:9]
         category = Category.objects.all()
         user_form=UserUpdateForm(instance=request.user)
         profile_form=ProfileUpdateForm(instance=request.user.userprofile)
@@ -53,7 +54,7 @@ def change_password(request):
             return HttpResponseRedirect('/user/password')
     else:
         setting = Setting.objects.get(pk=1)
-        lastnews = News.objects.all()[:9]
+        lastnews = News.objects.filter(lastNews='True').order_by('?')[:9]
         category = Category.objects.all()
         form=PasswordChangeForm(request.user)
         context = {'category': category, 'setting': setting, 'lastnews': lastnews,'form':form}
@@ -62,10 +63,10 @@ def change_password(request):
 @login_required(login_url='/login') #check login
 def comments(request):
     setting = Setting.objects.get(pk=1)
-    lastnews = News.objects.all()[:9]
+    lastnews = News.objects.filter(lastNews='True').order_by('?')[:9]
     category = Category.objects.all()
     current_user=request.user
-    comments=Comment.objects.filter(user_id=current_user.id)
+    comments=Comment.objects.filter(user_id=current_user.id).order_by('-id')
     context = {'category': category, 'setting': setting, 'lastnews': lastnews, 'comments': comments}
     return render(request, 'user_comments.html', context)
 
@@ -79,10 +80,10 @@ def deletecomments(request,id):
 @login_required(login_url='/login') #check login
 def mynews(request):
     setting = Setting.objects.get(pk=1)
-    lastnews = News.objects.all()[:9]
+    lastnews = News.objects.filter(lastNews='True').order_by('?')[:9]
     category = Category.objects.all()
     current_user=request.user
-    news=News.objects.filter(user_id=current_user.id)
+    news=News.objects.filter(user_id=current_user.id).order_by('-id')
     context = {'category': category, 'setting': setting, 'lastnews': lastnews, 'news': news}
     return render(request, 'user_mynews.html', context)
 
@@ -92,3 +93,77 @@ def deletenews(request,id):
     News.objects.filter(id=id,user_id=current_user.id).delete()
     messages.success(request,'News deleted..')
     return HttpResponseRedirect('/user/mynews')
+
+@login_required(login_url='/login') #check login
+def addnews(request):
+    if request.method == 'POST':
+        form = AddNewsForm(request.POST,request.FILES)
+        if form.is_valid():
+            current_user=request.user
+            data=News()
+            data.user_id=current_user.id
+            data.title=form.cleaned_data['title']
+            data.keywords=form.cleaned_data['keywords']
+            data.description=form.cleaned_data['description']
+            data.image=form.cleaned_data['image']
+            data.Category=form.cleaned_data['Category']
+            data.slug=form.cleaned_data['slug']
+            data.detail=form.cleaned_data['detail']
+            data.status=True
+            data.lastNews=False
+            data.save()
+            messages.success(request,'Your news Instaerted successfully')
+            return HttpResponseRedirect('/user/mynews')
+        else:
+            messages.error(request, 'News Form Error: ' + str(form.errors))
+            return HttpResponseRedirect('/user/addnews')
+    else:
+        setting = Setting.objects.get(pk=1)
+        lastnews = News.objects.filter(lastNews='True').order_by('?')[:9]
+        category = Category.objects.all()
+        form = AddNewsForm()
+        context = {'category': category, 'setting': setting, 'lastnews': lastnews, 'form': form}
+        return render(request, 'user_addnews.html', context)
+
+@login_required(login_url='/login') #check login
+def editnews(request,id):
+    news=News.objects.get(id=id)
+    if request.method == 'POST':
+        form = AddNewsForm(request.POST,request.FILES,instance=news)
+        if form.is_valid():
+            form.save()
+            messages.success(request,'Your news update successfully')
+            return HttpResponseRedirect('/user/mynews')
+        else:
+            messages.error(request, 'News Form Error: ' + str(form.errors))
+            return HttpResponseRedirect('/user/editnews'+str(id))
+    else:
+        setting = Setting.objects.get(pk=1)
+        lastnews = News.objects.filter(lastNews='True').order_by('?')[:9]
+        category = Category.objects.all()
+        form = AddNewsForm(instance=news)
+        context = {'category': category, 'setting': setting, 'lastnews': lastnews, 'form': form}
+        return render(request, 'user_addnews.html', context)
+
+
+def newsaddimage(request,id):
+    if request.method == 'POST':
+        lasturl=request.META.get('HTTP_REFERER')
+        form = NewsImageForm(request.POST,request.FILES)
+        if form.is_valid():
+            data=Images()
+            data.title=form.cleaned_data['title']
+            data.new_id=id
+            data.image=form.cleaned_data['image']
+            data.save()
+            messages.success(request,'Your image has been successfully uploaded')
+            return HttpResponseRedirect(lasturl)
+        else:
+            messages.warning(request, 'Form Error: ' + str(form.errors))
+            return HttpResponseRedirect(lasturl)
+    else:
+        news=News.objects.get(id=id)
+        images=Images.objects.filter(new_id=id)
+        form=NewsImageForm()
+        context = {'news':news,'images':images,'form':form}
+        return render(request, 'news_gallery.html', context)

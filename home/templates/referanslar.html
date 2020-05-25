@@ -1,5 +1,5 @@
 {% extends 'homebase.html' %}
-{% block title %} Reklam-{{ setting.company }} {% endblock %}
+{% block title %} Reklamlar-{{ setting.company }} {% endblock %}
 {% block keywords %} {{ setting.keywords }} {% endblock %}
 {% block description %} {{ setting.description }} {% endblock %}
 {% block head %} <link rel="shortcut icon" type="image/x-icon" href="{{ setting.icon.url }}"> {% endblock %}
@@ -12,17 +12,21 @@
       <div class="col-lg-12 col-md-12 col-sm-12">
         <div class="left_content">
           <div class="contact_area">
-            <h2>Reklam</h2>
-            {{ setting.references|safe }}
-              <ul class="photograph_nav  wow fadeInDown">
-                {% for rs in seyahatNews %}
-              <li>
-                <div class="photo_grid">
-                  <figure class="effect-layla"> <a class="fancybox-buttons" data-fancybox-group="button" href="/new/{{ rs.id }}/{{ rs.slug }}" title="{{ rs.title }}"> <img src="{{ rs.image.url }}" alt=""/></a> </figure>
-                </div>
-              </li>
+            <h2>Reklamlar</h2>
+            <br>
+              {% for rs in reklamlar %}
+                    <div class="col-sm-6 p-r-25 p-r-15-sr991">
+                        <!-- Item latest -->
+                        <div class="m-b-45">
+                            <img src="{{ rs.icon.url }}" height="100" width="100" alt="IMG">
+                            <div class="p-t-16">
+                                <h5 class="p-b-5">
+                                    {{ rs.company }}
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
                 {% endfor %}
-            </ul>
           </div>
         </div>
       </div>

@@ -161,7 +161,7 @@ img:hover{opacity:0.75}
 .photo_grid figure h2 span{font-weight:800}
 .photo_grid figure h2, .photo_grid figure a{margin:0}
 .photo_grid figcaption a{color:#fff; font-size:68.5%; letter-spacing:1px; display:block; margin-top:7px}
-figure.effect-layla img{height:390px}
+figure.effect-layla img{height:180px}
 figure.effect-layla figcaption{padding:1.5em}
 figure.effect-layla figcaption::before, figure.effect-layla figcaption::after{position:absolute; content:''; opacity:0}
 figure.effect-layla figcaption::before{top:20px; right:15px; bottom:20px; left:15px; border-top:1px solid #fff; border-bottom:1px solid #fff; -webkit-transform:scale(0,1); transform:scale(0,1); -webkit-transform-origin:0 0; transform-origin:0 0}
@@ -454,7 +454,7 @@ a.btn-customized {background: #2A52BE; font-size: 13px; font-weight: 300; color:
 .wrap-pic-max-w > img {max-width: 100%;}
 .wrap-pic-h > img {height: 100%;}
 .wrap-pic-max-h > img {max-height: 100%;}
-.wrap-pic-s > img {width: 100%; height: 100%;}
+.wrap-pic-s > img {width: 300px; height: 170px;}
 .wrap-pic-max-s > img {max-width: 100%; max-height: 100%;}
 .size-w-0 {flex-grow: 1;}
 .size-w-1 {width: 100px;}
@@ -479,6 +479,7 @@ a.btn-customized {background: #2A52BE; font-size: 13px; font-weight: 300; color:
 .size-a-9 {width: 100%;height: 60px;}
 .size-a-10 {width: 55px;height: 100%;}
 .size-h-2 {min-height: 40px;}
+.size-h-3 {min-height: 60px;}
 .pos-relative {position: relative;}
 .modal {    padding: 0px !important;    z-index: 1160;    overflow-x: hidden;    overflow-y: auto !important;}
 .modal-open {overflow-y: scroll;}

@@ -1,5 +1,5 @@
 {% extends 'homebase.html' %}
-{% block title %} News Search Results {% endblock %}
+{% block title %} Arama Sonuçları {% endblock %}
 {% block keywords %} {{ categorydata.keywords }} {% endblock %}
 {% block description %} {{ categorydata.description }} {% endblock %}
 {% block head %} <link rel="shortcut icon" type="image/x-icon" href="{{ setting.icon.url }}"> {% endblock %}
@@ -77,26 +77,13 @@
               </div>
               <div role="tabpanel" class="tab-pane" id="comments">
                 <ul class="spost_nav">
+                   {% for rs in commentnews %}
                   <li>
-                    <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img1.jpg'%}"> </a>
-                      <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 1</a> </div>
+                    <div class="media wow fadeInDown"> <a href="/new/{{ rs.news_id }}/{{ rs.news.slug }}" class="media-left"> <img alt="" src="{{ rs.news.image.url }}"> </a>
+                      <div class="media-body"> <a href="/new/{{ rs.news_id }}/{{ rs.news.slug }}" class="catg_title">{{ rs.news.title }}</a> </div>
                     </div>
                   </li>
-                  <li>
-                    <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img2.jpg'%}"> </a>
-                      <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 2</a> </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img1.jpg'%}"> </a>
-                      <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 3</a> </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="media wow fadeInDown"> <a href="single_page.html" class="media-left"> <img alt="" src="{% static 'images/post_img2.jpg'%}"> </a>
-                      <div class="media-body"> <a href="single_page.html" class="catg_title"> Aliquam malesuada diam eget turpis varius 4</a> </div>
-                    </div>
-                  </li>
+                    {% endfor %}
                 </ul>
               </div>
             </div>
@@ -119,11 +106,15 @@
           <div class="single_sidebar wow fadeInDown">
             <h2><span>Bağlantılar</span></h2>
             <ul>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Rss</a></li>
-              <li><a href="#">Künye</a></li>
-              <li><a href="/login/">Üye Girişi</a></li>
+             <li><a href="/kunye/">Künye</a></li>
+              <li><a href="/iletisim">İletişim</a></li>
+                {% if user.id is not None %}
+              <li><a href="/user/">Üye Paneli</a></li>
+                <li><a href="/logout/">Çıkış</a></li>
+                {% else %}
+                    <li><a href="/login/">Üye Girişi</a></li>
                 <li><a href="/signup/">Üye Ol</a></li>
+                {% endif %}
             </ul>
           </div>
         </aside>
